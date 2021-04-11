@@ -14,6 +14,14 @@ const init = async () => {
     },
   });
 
+  server.route({
+    method: "POST",
+    path: "/post",
+    handler: (request, h) => {
+      return "Hello World! POST Request";
+    },
+  });
+
   await server.start();
   console.log("Server running on port 3000");
 };

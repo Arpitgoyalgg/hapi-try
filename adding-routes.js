@@ -7,18 +7,14 @@ const init = async () => {
   });
 
   server.route({
-    method: "GET",
+    method: ["GET", "POST"],
     path: "/hello",
     handler: (request, h) => {
-      return "Hello World! GET Request";
-    },
-  });
-
-  server.route({
-    method: "POST",
-    path: "/hello",
-    handler: (request, h) => {
-      return "Hello World! POST Request";
+      if (request.method == "get") {
+        return "GET request";
+      } else if (request.method == "post") {
+        return "POST request";
+      }
     },
   });
 
